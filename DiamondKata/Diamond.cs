@@ -17,10 +17,7 @@ namespace DiamondKata
                 return "A";
             }
 
-            var numberOfRows = 1 + diamondSize * 2;
-
-            var rowNumberOfTheRowInTheMiddle = numberOfRows / 2;
-
+            var rowNumberOfTheRowInTheMiddle = diamondSize;
             var firstHalfDiamondStringBuilder = new StringBuilder();
 
             for (var rowNumber = 0; rowNumber < rowNumberOfTheRowInTheMiddle; rowNumber++)
@@ -66,21 +63,15 @@ namespace DiamondKata
 
         private string CreateMiddleRow()
         {
-            var diamondSize = GetIntegerSize();
-            var numberOfRows = 1 + diamondSize * 2;
-
-            var rowNumberOfTheRowInTheMiddle = numberOfRows / 2;
+            var rowNumberOfTheRowInTheMiddle = GetIntegerSize();
 
             var middleRowDiamondStringBuilder = new StringBuilder();
             var letterToAppendInTheMiddleRow = (char)(DiamondMinKind + rowNumberOfTheRowInTheMiddle);
-            var numberOfSpacesBeforeOrAfterLetterInTheMiddleRow = diamondSize - rowNumberOfTheRowInTheMiddle;
             var numberOfSpacesBetweenLettersInTheMiddleRow = rowNumberOfTheRowInTheMiddle * 2 - 1;
 
-            AppendSpaceNumberOfTimes(middleRowDiamondStringBuilder, numberOfSpacesBeforeOrAfterLetterInTheMiddleRow);
             middleRowDiamondStringBuilder.Append(letterToAppendInTheMiddleRow);
             AppendSpaceNumberOfTimes(middleRowDiamondStringBuilder, numberOfSpacesBetweenLettersInTheMiddleRow);
             middleRowDiamondStringBuilder.Append(letterToAppendInTheMiddleRow);
-            AppendSpaceNumberOfTimes(middleRowDiamondStringBuilder, numberOfSpacesBeforeOrAfterLetterInTheMiddleRow);
 
             return middleRowDiamondStringBuilder.ToString();
         }
