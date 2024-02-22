@@ -4,7 +4,11 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            var diamondKind = args.First().First();
+
+            var diamond = new Diamond(diamondKind);
+
+            Console.Write(diamond.ToDiamondString());
         }
     }
 }
